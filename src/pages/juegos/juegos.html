@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let game of games" (click)="gameTapped($event, game)">
+    <button ion-item *ngFor="let game of games" (click)="gamesTapped($event, game)">
     <!--  <ion-icon name="{{item.icon}}" item-left></ion-icon> -->
       {{game.title}}
    <!--   <div class="item-note" item-right>

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { ArmarparejasPage } from '../pages/armarparejas/armarparejas';
+import { KitdelasuertePage } from '../pages/kitdelasuerte/kitdelasuerte';
 import { JuegosPage } from '../pages/juegos/juegos';
 import { NumerologiaPage } from '../pages/numerologia/numerologia';
 import { AstrologiaPage } from '../pages/astrologia/astrologia';
@@ -14,12 +15,13 @@ import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
   declarations: [
     MyApp,
     HomePage,
-    ItemDetailsPage,
+    ArmarparejasPage,
     JuegosPage,
     NumerologiaPage,
     AstrologiaPage,
     ResultadosPage,
-    SimuladorgirosPage
+    SimuladorgirosPage,
+    KitdelasuertePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -28,12 +30,13 @@ import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
   entryComponents: [
     MyApp,
     HomePage,
-    ItemDetailsPage,
+    ArmarparejasPage,
     JuegosPage,
     NumerologiaPage,
     AstrologiaPage,
     ResultadosPage,
-    SimuladorgirosPage
+    SimuladorgirosPage,
+    KitdelasuertePage
   ],
   providers: []
 })
