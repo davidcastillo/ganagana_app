@@ -54,8 +54,6 @@ export class JuegosPage {
             console.log("none item selected");
       }
    
-
-
     
     //if(game.gameId == 'armarparejas'){
     //  gametoShow = ArmarparejasPage;

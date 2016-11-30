@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button menuToggle *ngIf="!selectedItem">
+    <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Armar parejas</ion-title>
@@ -8,5 +8,8 @@
 </ion-header>
 
 <ion-content>
-Armar parejas
+      <button ion-button icon-only  
+           [navPush]="instruccionesPage"> 
+           <ion-icon name="help-circle"></ion-icon>
+      </button>
 </ion-content>

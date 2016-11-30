@@ -9,6 +9,8 @@ import { NumerologiaPage } from '../pages/numerologia/numerologia';
 import { AstrologiaPage } from '../pages/astrologia/astrologia';
 import { ResultadosPage } from '../pages/resultados/resultados';
 import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
+import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
     AstrologiaPage,
     ResultadosPage,
     SimuladorgirosPage,
-    KitdelasuertePage
+    KitdelasuertePage,
+    InstruccionesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -36,7 +39,8 @@ import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
     AstrologiaPage,
     ResultadosPage,
     SimuladorgirosPage,
-    KitdelasuertePage
+    KitdelasuertePage,
+    InstruccionesPage
   ],
   providers: []
 })
