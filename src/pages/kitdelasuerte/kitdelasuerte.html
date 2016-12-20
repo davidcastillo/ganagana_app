@@ -8,5 +8,56 @@
 </ion-header>
 
 <ion-content>
-Kit de la suerte
+    <ion-card>
+      <ion-card-content>
+        Bienvenido al juego del kit de la suerte, crea tu cuenta aqui, empieza a capturar amuletos en nuestros puntos Gana Gana, cuando los completes todos recibiras fabulosos premios
+      </ion-card-content>
+    </ion-card>
+
+
+       <form (ngsubmit)="logForm()">           
+          <ion-list>  
+            <ion-item>
+                <ion-input  type="text" name="name" [(ngModel)]="player.name" placeholder="Nombre"></ion-input>
+            </ion-item>    
+
+            <ion-item>
+                <ion-input  type="tel"  name="mobile" [(ngModel)]="player.mobile" placeholder="Celular"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input  type="text" name="email" [(ngModel)]="player.email" placeholder="Email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input  type="text" name="city" [(ngModel)]="player.city" placeholder="Ciudad"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input type="date" name="date_of_birth" [(ngModel)]="player.date_of_birth" placeholder="Fecha de nacimiento"></ion-input>
+            </ion-item>
+
+<!--campos de amuletos ocultos--> 
+        </ion-list>
+    </form>
+
+    <button ion-button color="secondary" (click)= 'addPlayer()' type="submit" block>Empezar a jugar</button>
+
+
+    <ion-list>
+        <ion-item *ngFor="let player of players | async">
+            {{player.name}}
+            {{player.mobile}}
+            {{player.email}}
+            {{player.date_of_birth}}
+            {{player.city}}
+            {{player.amulet_0}}
+            {{player.amulet_1}}
+            {{player.amulet_2}}
+<!--Ojo pilas porque faltan 4 amuletos--> 
+        </ion-item>
+    </ion-list>
+
+
+
 </ion-content>

@@ -10,8 +10,18 @@ import { AstrologiaPage } from '../pages/astrologia/astrologia';
 import { ResultadosPage } from '../pages/resultados/resultados';
 import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
 import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
+import { AngularFireModule } from 'angularfire2';
+import { FormsModule} from '@angular/forms';
 
 
+export const firebaseConfig = {
+
+    apiKey: "AIzaSyDfi3aeYqUL-I1pC_kR5l7es7Sd9t_nsyQ",
+    authDomain: "ganaganadb.firebaseapp.com",
+    databaseURL: "https://ganaganadb.firebaseio.com",
+    storageBucket: "ganaganadb.appspot.com",
+    messagingSenderId: "928922388579"
+};
 
 @NgModule({
   declarations: [
@@ -27,7 +37,9 @@ import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
     InstruccionesPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+      IonicModule.forRoot(MyApp),
+      AngularFireModule.initializeApp(firebaseConfig),
+      FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
