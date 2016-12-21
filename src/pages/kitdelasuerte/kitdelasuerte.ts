@@ -1,47 +1,59 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { FirebaseService } from '../../app/services/firebase.service';
+import { Players } from '../../app/entities/Players';
 
 
 @Component({
   selector: 'kitdelasuerte-page',
-  templateUrl: 'kitdelasuerte.html'
+  templateUrl: 'kitdelasuerte.html',
+  providers: [FirebaseService]
+
 })
-export class KitdelasuertePage {
+export class KitdelasuertePage implements OnInit{
   selectedItem: any;
-  players: FirebaseListObservable<any>;
-  player = {}
+  players: Players[];
+  defaultplayer = {
+    name: "",
+    mobile: "",
+    email: "",
+    city: "",
+    date_of_birth: "",
+    amulet_0: 0,
+    amulet_1: 0,
+    amulet_2: 0,
+    amulet_3: 0,
+    amulet_4: 0,
+    amulet_5: 0
+  }
+  model = new Players("", "", "", "", "", 0, 0, 0, 0, 0, 0);
+  constructor(private _firebaseService: FirebaseService, public navCtrl: NavController, public navParams: NavParams) {
+    // If we navigated to this page, we will have an item available as a nav param
+    this.selectedItem = navParams.get('item');
+  }
 
-
-    constructor(public navCtrl: NavController, public navParams: NavParams, angFire: AngularFire) {
-      // If we navigated to this page, we will have an item available as a nav param
-      this.player = {
-        name: "",
-        mobile: "",
-        email: "",
-        city: "",
-        date_of_birth: "",
-        amulet_0: 123,
-        amulet_1: 0,
-        amulet_2: 0,
-        amulet_3: 0,
-        amulet_4: 0,
-        amulet_5: 0,
-      }
-      this.selectedItem = navParams.get('item');
-      this.players = angFire.database.list('/Players');
-    }
-
-
-    addPlayer(): firebase.Promise <any> {
-        console.log(this.player);
-        return this.players.push(this.player);
-    }
-
- //     logForm() {
- //   console.log (this.player)
-//  }
-
+  ngOnInit(){
+    this._firebaseService.getPlayers().subscribe(players => {
+      this.players = [ this.defaultplayer ];
+      console.log(players);
+    })
+  }
+  addPlayer(){
+    let result: any;
+    let newplayer = {
+      name: this.model.name,
+      mobile: this.model.mobile,
+      email: this.model.email,
+      city: this.model.city,
+      date_of_birth: this.model.date_of_birth,
+      amulet_0: 0,
+      amulet_1: 0,
+      amulet_2: 0,
+      amulet_3: 0,
+      amulet_4: 0,
+      amulet_5: 0,
+    };
+    result = this._firebaseService.addPlayer(newplayer); 
+    console.log(result);
+  }
 }

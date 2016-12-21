@@ -12,6 +12,7 @@ import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
 import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule} from '@angular/forms';
+//import { FirebaseService } from '../services/firebase.service';
 
 
 export const firebaseConfig = {
@@ -54,6 +55,6 @@ export const firebaseConfig = {
     KitdelasuertePage,
     InstruccionesPage
   ],
-  providers: []
+  providers: [],
 })
 export class AppModule {}

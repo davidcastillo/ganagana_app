@@ -14,26 +14,26 @@
       </ion-card-content>
     </ion-card>
 
-       <form (ngsubmit)="logForm()">           
+       <form #serviceForm="ngForm" (ngsubmit)="logForm()">           
           <ion-list>  
             <ion-item>
-                <ion-input  type="text" name="name" [(ngModel)]="player.name" placeholder="Nombre"></ion-input>
+                <ion-input  type="text" name="name" [(ngModel)]="players.name" placeholder="Nombre"></ion-input>
             </ion-item>    
 
             <ion-item>
-                <ion-input  type="tel"  name="mobile" [(ngModel)]="player.mobile" placeholder="Celular"></ion-input>
+                <ion-input  type="tel"  name="mobile" [(ngModel)]="players.mobile" placeholder="Celular"></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-input  type="text" name="email" [(ngModel)]="player.email" placeholder="Email"></ion-input>
+                <ion-input  type="text" name="email" [(ngModel)]="players.email" placeholder="Email"></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-input  type="text" name="city" [(ngModel)]="player.city" placeholder="Ciudad"></ion-input>
+                <ion-input  type="text" name="city" [(ngModel)]="players.city" placeholder="Ciudad"></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-input type="date" name="date_of_birth" [(ngModel)]="player.date_of_birth" placeholder="Fecha de nacimiento"></ion-input>
+                <ion-input type="date" name="date_of_birth" [(ngModel)]="players.date_of_birth" placeholder="Fecha de nacimiento"></ion-input>
             </ion-item>
 
 <!--campos de amuletos ocultos--> 
@@ -43,7 +43,7 @@
     <button ion-button color="secondary" (click)= 'addPlayer()' type="submit" block>Empezar a jugar</button>
 
 
-    <ion-list>
+    <!--<ion-list>
         <ion-item *ngFor="let player of players | async">
             {{player.name}}
             {{player.mobile}}
@@ -53,6 +53,8 @@
             {{player.amulet_0}}
             {{player.amulet_1}}
             {{player.amulet_2}}
+        </ion-item>
+    </ion-list>--> 
 <!--Ojo pilas porque faltan 4 amuletos--> 
 
 </ion-content>
