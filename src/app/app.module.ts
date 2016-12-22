@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { LoginPage} from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ArmarparejasPage } from '../pages/armarparejas/armarparejas';
 import { KitdelasuertePage } from '../pages/kitdelasuerte/kitdelasuerte';
@@ -29,6 +30,7 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
+    LoginPage,
     ArmarparejasPage,
     JuegosPage,
     NumerologiaPage,
@@ -48,6 +50,7 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
+    LoginPage,
     ArmarparejasPage,
     JuegosPage,
     NumerologiaPage,

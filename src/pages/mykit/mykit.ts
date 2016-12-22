@@ -24,3 +24,5 @@ export class MykitPage {
     return user !== null &&  user !== undefined;
  }
 }
+
+

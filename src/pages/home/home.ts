@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginPage } from '..login/login';
 
 
 @Component({
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  isAlreadyLoggedIn
+
+
   constructor() {
 
   }
