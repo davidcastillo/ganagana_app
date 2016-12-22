@@ -13,7 +13,7 @@
         Bienvenido al juego del kit de la suerte, crea tu cuenta aqui, empieza a capturar amuletos en nuestros puntos Gana Gana, cuando los completes todos recibiras fabulosos premios
       </ion-card-content>
     </ion-card>
-
+<!--
        <form #serviceForm="ngForm" (ngsubmit)="logForm()">           
           <ion-list>  
             <ion-item>
@@ -36,25 +36,57 @@
                 <ion-input type="date" name="date_of_birth" [(ngModel)]="players.date_of_birth" placeholder="Fecha de nacimiento"></ion-input>
             </ion-item>
 
-<!--campos de amuletos ocultos--> 
+<!--campos de amuletos ocultos
         </ion-list>
     </form>
 
-    <button ion-button color="secondary" (click)= 'addPlayer()' type="submit" block>Empezar a jugar</button>
+    <button ion-button color="secondary" (click)= 'addPlayer()' type="submit" block>Empezar a jugar</button> --> 
 
 
-    <!--<ion-list>
-        <ion-item *ngFor="let player of players | async">
-            {{player.name}}
-            {{player.mobile}}
-            {{player.email}}
-            {{player.date_of_birth}}
-            {{player.city}}
-            {{player.amulet_0}}
-            {{player.amulet_1}}
-            {{player.amulet_2}}
-        </ion-item>
-    </ion-list>--> 
-<!--Ojo pilas porque faltan 4 amuletos--> 
+
+
+
+
+
+
+	<div class="container">
+		<div class="card">
+			<h1 class="title">Ingresar</h1>
+			<form id="login-form">
+                <ion-item>
+                    <ion-input type="email" name="email" [(ngModel)]="user.email"></ion-input>
+                </ion-item>
+                <ion-item>
+				    <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+                </ion-item>
+				<button ion-button block id="loginBtn">Ingrear</button>
+				<button ion-button block id="fb-login">Ingresar con Facebook</button>
+                <button ion-button block (click)="registerUser()">Crear nueva cuenta</button>
+			</form>
+		</div>
+	</div>
+
+<!--
+  <form>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" name="email" [(ngModel)]="#user.email"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="#user.password"></ion-input>
+    </ion-item>
+ 
+    <div padding>
+      <button block (click)="login(l)">Login</button>
+      <button block (click)="registerUser()">Create New Account</button>
+    </div>
+  </form>
+-->
+
+
+
+
 
 </ion-content>

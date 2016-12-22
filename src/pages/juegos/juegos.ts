@@ -4,6 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { ArmarparejasPage } from '../armarparejas/armarparejas';
 import { KitdelasuertePage } from '../kitdelasuerte/kitdelasuerte';
+import { MykitPage } from '../mykit/mykit';
+
 
 
 @Component({
@@ -48,7 +50,7 @@ export class JuegosPage {
              gametoShow = ArmarparejasPage;
              break;
         case 'kitdelasuerte':
-             gametoShow = KitdelasuertePage;
+             gametoShow = MykitPage;
              break;
         default:
             console.log("none item selected");

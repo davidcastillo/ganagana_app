@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ArmarparejasPage } from '../pages/armarparejas/armarparejas';
@@ -10,6 +10,7 @@ import { AstrologiaPage } from '../pages/astrologia/astrologia';
 import { ResultadosPage } from '../pages/resultados/resultados';
 import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
 import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
+import { MykitPage } from '../pages/mykit/mykit';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule} from '@angular/forms';
 //import { FirebaseService } from '../services/firebase.service';
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     ResultadosPage,
     SimuladorgirosPage,
     KitdelasuertePage,
-    InstruccionesPage
+    InstruccionesPage,
+    MykitPage
   ],
   imports: [
       IonicModule.forRoot(MyApp),
@@ -53,8 +55,9 @@ export const firebaseConfig = {
     ResultadosPage,
     SimuladorgirosPage,
     KitdelasuertePage,
-    InstruccionesPage
+    InstruccionesPage,
+    MykitPage
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
