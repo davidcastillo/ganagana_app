@@ -10,7 +10,7 @@ import { NumerologiaPage } from '../pages/numerologia/numerologia';
 import { AstrologiaPage } from '../pages/astrologia/astrologia';
 import { ResultadosPage } from '../pages/resultados/resultados';
 import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
-import {LoginPage} from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 //import { InstruccionesPage } from '../instrucciones/instrucciones';
 
 
@@ -22,7 +22,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(

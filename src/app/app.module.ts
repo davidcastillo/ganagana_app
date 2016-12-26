@@ -14,7 +14,7 @@ import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
 import { MykitPage } from '../pages/mykit/mykit';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule} from '@angular/forms';
-//import { FirebaseService } from '../services/firebase.service';
+//import { FirebaseService } from '../app/services/firebase.service';
 
 
 export const firebaseConfig = {
@@ -39,7 +39,8 @@ export const firebaseConfig = {
     SimuladorgirosPage,
     KitdelasuertePage,
     InstruccionesPage,
-    MykitPage
+    MykitPage,
+ //   FirebaseService
   ],
   imports: [
       IonicModule.forRoot(MyApp),

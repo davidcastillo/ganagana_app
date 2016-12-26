@@ -2,14 +2,17 @@ import {Component} from '@angular/core';
 import {NavController, AlertController, LoadingController} from 'ionic-angular';
 import {FirebaseAuth, AuthProviders, AuthMethods} from 'angularfire2';
 import {HomePage} from '../home/home';
+import {FirebaseService} from '../../app/services/firebase.service';
  
 @Component({
   selector: 'login-page',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
 })
 export class LoginPage {
   loader: any;
   user = {email: '', password: ''};
+  isAlreadyloggedin = {}
+
  
   constructor(public nav: NavController, public auth: FirebaseAuth, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
  
@@ -30,14 +33,16 @@ export class LoginPage {
       this.showError(error);
     });
   }
+
   public login() {
     this.showLoading()
     this.auth.login(this.user, {
         provider: AuthProviders.Password,
         method: AuthMethods.Password,
     }).then((authData) => {
-       this.createsesion()
+     //  this.FirebaseService.isAlreadyloggedin
        this.loader.dismiss();
+       console.log("antes de enviar a home")
        this.nav.setRoot(HomePage);
     }).catch((error) => {this.showError(error);});
   }
@@ -59,22 +64,4 @@ export class LoginPage {
     });
     prompt.present();
   }
-
-    createsesion() {
-        console.log("mi metodo se ejecuto")
-        window.localStorage.setItem('isAuthenticated',"yes");
-  }
-
-    isAlreadyLoggedIn(){
-        let isAuthenticated = window.localStorage.getItem('isAuthenticated');
-        if (isAuthenticated == "yes"){
-        return true;
-        }
-        return false;
-    }
-
-
-
-
-
 }

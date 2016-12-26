@@ -26,6 +26,40 @@ export class FirebaseService{
     this.players = angFire.database.list('/Players');
   }
 
+  soyUnmetodo(){
+    console.log("vengo desde firebase service")
+    }
+
+
+  sessionvalidation(){
+    if(this.isAlreadyLoggedIn()){
+      console.log("logged")
+    }
+    else{
+      console.log("no logged")
+    }
+  }
+
+  isAlreadyLoggedIn(){
+      let isAuthenticated = window.localStorage.getItem('isAuthenticated');
+      if (isAuthenticated == "yes"){
+      return true;
+      }
+      return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
   getPlayers(){
     this.players = this.angFire.database.list('/Players') as
     FirebaseListObservable<any>
@@ -36,5 +70,39 @@ export class FirebaseService{
     console.log("servira");
     return this.players.push(this.player);
   }
+
+  isAlreadyLoggedIn(){
+      let isAuthenticated = window.localStorage.getItem('isAuthenticated');
+      if (isAuthenticated == "yes"){
+      return true;
+      }
+      return false;
+  }
+
+   createsesion() {
+            console.log("mi metodo se ejecuto")
+       window.localStorage.setItem('isAuthenticated',"yes");
+  }
+
+  onFacebookLogin(e){
+    let self = this;
+    this.af.auth.login({
+      provider: AuthProviders.Facebook,
+      method: AuthMethods.Popup
+    }).then(function(response){
+    let user = {
+        email:response.auth.email,
+        picture:response.auth.photoURL
+        };
+    window.localStorage.setItem('user',JSON.stringify(user));
+    self.navCtrl.pop();
+    }).catch(function(error){
+    console.log(error);
+    });
+    }
+
+
+
 }
 
+*/
