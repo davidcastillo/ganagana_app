@@ -3,6 +3,11 @@ import {NavController, AlertController, LoadingController} from 'ionic-angular';
 import {FirebaseAuth, AuthProviders, AuthMethods} from 'angularfire2';
 import {HomePage} from '../home/home';
 import {FirebaseService} from '../../app/services/firebase.service';
+
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
  
 @Component({
   selector: 'login-page',
@@ -11,14 +16,14 @@ import {FirebaseService} from '../../app/services/firebase.service';
 export class LoginPage {
   loader: any;
   user = {email: '', password: ''};
-  isAlreadyloggedin = {}
+  isAlreadyloggedin = {};
+
 
  
-  constructor(public nav: NavController, public auth: FirebaseAuth, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+  constructor(public nav: NavController, public auth: FirebaseAuth, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private http: Http) {}
  
   public registerUser() {
     this.showLoading()
- 
     this.auth.createUser(this.user).then((authData) => {
       setTimeout(() => {
         this.loader.dismiss();
@@ -34,24 +39,29 @@ export class LoginPage {
     });
   }
 
+
   public login() {
     this.showLoading()
     this.auth.login(this.user, {
         provider: AuthProviders.Password,
         method: AuthMethods.Password,
     }).then((authData) => {
-     //  this.FirebaseService.isAlreadyloggedin
+        this.localStorage()
+       //  this.FirebaseService.isAlreadyloggedin
        this.loader.dismiss();
-       console.log("antes de enviar a home")
+       console.log("antes de enviar a home");
        this.nav.setRoot(HomePage);
     }).catch((error) => {this.showError(error);});
   }
+
+
   showLoading() {
     this.loader = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     this.loader.present();
   }
+ 
  
   showError(text) {
         setTimeout(() => {
@@ -64,4 +74,25 @@ export class LoginPage {
     });
     prompt.present();
   }
+
+localStorage() {
+    localStorage.setItem('currentUser', JSON.stringify(this.user));
+              }
+
+
+ logout() {
+    //  remove user from local storage to log user out
+  localStorage.removeItem('currentUser');
+ }
 }
+
+
+
+
+
+
+
+
+
+
+

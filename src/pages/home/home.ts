@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FirebaseService } from '../../app/services/firebase.service';
-import { LoginPage } from '../login/login'
+import { LoginPage } from '../login/login';
+import { NumerologiaPage } from '../numerologia/numerologia';
+
 
 @Component({
   selector: 'home-page',
   templateUrl: 'home.html',
-  providers: [FirebaseService]
+  providers: [FirebaseService],
 })
 
 export class HomePage implements OnInit{ 
@@ -17,13 +19,22 @@ export class HomePage implements OnInit{
 
   ngOnInit(){
     this._firebaseService.soyUnmetodo();
-    this._firebaseService.sessionvalidation()
+   // this._firebaseService.sessionvalidation();
+    this.testing()
   }
 
-  testing(){
-    if(this._firebaseService.sessionvalidation()){
+ testing(){
+   let islogged = false
+    if(this._firebaseService.isAlreadyLoggedIn() == islogged){
+      console.log('esta a punto de tomar la decision');
       this.navCtrl.push(LoginPage);
+      console.log('debio mandar a loginpage');
     }
+/*    else{
+       this.navCtrl.push(NumerologiaPage);
+    }*/
+
   }
 }
 
+//this._firebaseService.sessionvalidation()

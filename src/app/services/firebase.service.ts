@@ -6,7 +6,8 @@ import { Players } from '../entities/Players';
 @Injectable()
 export class FirebaseService{
   players: FirebaseListObservable<any>;
-  player = {}
+  player = {};
+  status= {}
 
   constructor(private angFire: AngularFire) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -31,21 +32,30 @@ export class FirebaseService{
     }
 
 
+/*
   sessionvalidation(){
-    if(this.isAlreadyLoggedIn()){
-      console.log("logged")
-    }
-    else{
-      console.log("no logged")
-    }
-  }
+    this.isAlreadyLoggedIn()
 
-  isAlreadyLoggedIn(){
-      let isAuthenticated = window.localStorage.getItem('isAuthenticated');
-      if (isAuthenticated == "yes"){
-      return true;
+
+    if(this.isAlreadyLoggedIn()){
+      console.log("logged");
+    } 
+    else{
+      console.log("no logged");
+    }
+}*/
+
+ isAlreadyLoggedIn(){
+      let isAuthenticated = false
+      let how = false
+      /*window.localStorage.getItem('isAuthenticated');*/
+      if (how == isAuthenticated){
+        return true;
       }
-      return false;
+      else{
+        return false;
+      }
+      
   }
 }
 
