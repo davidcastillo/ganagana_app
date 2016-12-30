@@ -18,23 +18,13 @@ export class HomePage implements OnInit{
   constructor(public navCtrl: NavController, public navParams: NavParams, private _firebaseService: FirebaseService) {}
 
   ngOnInit(){
-    this._firebaseService.soyUnmetodo();
-   // this._firebaseService.sessionvalidation();
-    this.testing()
+    this._firebaseService.loginvalidation();
   }
 
- testing(){
-   let islogged = false
-    if(this._firebaseService.isAlreadyLoggedIn() == islogged){
-      console.log('esta a punto de tomar la decision');
-      this.navCtrl.push(LoginPage);
-      console.log('debio mandar a loginpage');
-    }
-/*    else{
-       this.navCtrl.push(NumerologiaPage);
-    }*/
-
-  }
 }
 
 //this._firebaseService.sessionvalidation()
+
+// importar el oninit el firebaservice  
+// declarar en el providers 
+// incluir el constructor

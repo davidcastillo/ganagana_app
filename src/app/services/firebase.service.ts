@@ -1,15 +1,24 @@
 import {Injectable} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {FirebaseAuth, AuthProviders, AuthMethods, FirebaseAuthState} from 'angularfire2';
 import 'rxjs/add/operator/map';
 import { Players } from '../entities/Players';
+import { NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../../pages/login/login';
+
 
 @Injectable()
 export class FirebaseService{
+  private authState: FirebaseAuthState;
   players: FirebaseListObservable<any>;
   player = {};
   status= {}
 
-  constructor(private angFire: AngularFire) {
+  constructor(public navCtrl: NavController, private angFire: AngularFire, public auth: FirebaseAuth) {
+    this.authState = auth.getAuth();
+    auth.subscribe((state: FirebaseAuthState) => {
+      this.authState = state;
+    });
     // If we navigated to this page, we will have an item available as a nav param
     this.player = {
       name: "",
@@ -45,9 +54,23 @@ export class FirebaseService{
     }
 }*/
 
+  get authenticated(): boolean {
+    return this.authState !== null;
+  }
+
+loginvalidation(){
+  if (this.authState == null) {
+    this.navCtrl.push(LoginPage);
+  }
+}
+
+
+
  isAlreadyLoggedIn(){
+      var user = this.angFire.auth.subscribe();
+      console.log(user)
       let isAuthenticated = false
-      let how = false
+      let how = {}
       /*window.localStorage.getItem('isAuthenticated');*/
       if (how == isAuthenticated){
         return true;
