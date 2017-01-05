@@ -22,9 +22,3 @@ export class HomePage implements OnInit{
   }
 
 }
-
-//this._firebaseService.sessionvalidation()
-
-// importar el oninit el firebaservice  
-// declarar en el providers 
-// incluir el constructor

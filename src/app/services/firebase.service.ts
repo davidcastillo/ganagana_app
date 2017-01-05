@@ -36,24 +36,6 @@ export class FirebaseService{
     this.players = angFire.database.list('/Players');
   }
 
-  soyUnmetodo(){
-    console.log("vengo desde firebase service")
-    }
-
-
-/*
-  sessionvalidation(){
-    this.isAlreadyLoggedIn()
-
-
-    if(this.isAlreadyLoggedIn()){
-      console.log("logged");
-    } 
-    else{
-      console.log("no logged");
-    }
-}*/
-
   get authenticated(): boolean {
     return this.authState !== null;
   }
@@ -64,14 +46,11 @@ loginvalidation(){
   }
 }
 
-
-
  isAlreadyLoggedIn(){
       var user = this.angFire.auth.subscribe();
       console.log(user)
       let isAuthenticated = false
       let how = {}
-      /*window.localStorage.getItem('isAuthenticated');*/
       if (how == isAuthenticated){
         return true;
       }
