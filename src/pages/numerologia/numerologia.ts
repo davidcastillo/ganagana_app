@@ -6,7 +6,20 @@ import { Component } from '@angular/core';
   templateUrl: 'numerologia.html'
 })
 export class NumerologiaPage {
-  constructor() {
+  private button2: true;
+
+
+
+  constructor() {}
+
+
+  public activateButtons(){
+    console.log("debe activar botones");
+     this.button2 = true;
+}
+
+
+
 
   }
-}
+
