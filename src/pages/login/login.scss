@@ -1,10 +1,20 @@
-item-details-page {
+login-page {
 
   div.selection {
     font-size: 22px;
     display: block;
     text-align: center;
     padding-top: 5%;
+  }
+
+}
+
+login-page {
+
+  .headerlogin {
+    padding: 10px 12px;
+    height: 40px;
+    text-align: center;
   }
 
 }

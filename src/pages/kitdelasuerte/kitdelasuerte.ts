@@ -11,7 +11,7 @@ import { Players } from '../../app/entities/Players';
   providers: [FirebaseService]
 
 })
-export class KitdelasuertePage implements OnInit{
+export class KitdelasuertePage /*implements OnInit*/ {
   selectedItem: any;
   root: any;
   user = {email: '', password: ''};
@@ -19,7 +19,7 @@ export class KitdelasuertePage implements OnInit{
   constructor(private _firebaseService: FirebaseService, public navCtrl: NavController, public navParams: NavParams, public element: ElementRef, public af: AngularFire) {
     this.selectedItem = navParams.get('item');
   }
-
+/*
 ngOnInit(){
   this.root = this.element.nativeElement;
   var loginBtn = this.root.querySelector('#loginBtn');
@@ -68,5 +68,5 @@ onFacebookLogin(e){
   }).catch(function(error){
   console.log(error);
   });
-  }
+  }*/
 }

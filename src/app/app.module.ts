@@ -12,6 +12,8 @@ import { ResultadosPage } from '../pages/resultados/resultados';
 import { SimuladorgirosPage } from '../pages/simuladorgiros/simuladorgiros';
 import { InstruccionesPage } from '../pages/instrucciones/instrucciones';
 import { MykitPage } from '../pages/mykit/mykit';
+import { NumresultsPage } from '../pages/numresults/numresults';
+import { SimuladoresultsPage }  from '../pages/simuladoresults/simuladoresults';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule} from '@angular/forms';
 //import { FirebaseService } from '../app/services/firebase.service';
@@ -40,6 +42,8 @@ export const firebaseConfig = {
     KitdelasuertePage,
     InstruccionesPage,
     MykitPage,
+    NumresultsPage,
+    SimuladoresultsPage,
  //   FirebaseService
   ],
   imports: [
@@ -60,7 +64,9 @@ export const firebaseConfig = {
     SimuladorgirosPage,
     KitdelasuertePage,
     InstruccionesPage,
-    MykitPage
+    MykitPage,
+    NumresultsPage,
+    SimuladoresultsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

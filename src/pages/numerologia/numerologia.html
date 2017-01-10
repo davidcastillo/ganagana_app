@@ -17,16 +17,22 @@
       </ion-col>
       <ion-col width-50>
         <img src="assets/imageshome/fingerprint1.png"  (click)='activateButtons();'  /> 
-     <!--   <button class=indice ion-button block > </button> -->
       </ion-col>
   </ion-row>
 </div>
 
 
-<button ion-button block type="button" disabled>Para el Chance</button>
-<button ion-button block type="button" disabled>Para la Loteria</button>
-<button ion-button block type="button" disabled>Para el numero de la suerte</button>
-
+  <div>
+        <button ion-button block type="button" disabled="{{isPushed}}"
+          [navPush]="numresultsPage">Para el Chance
+        </button>
+        <button ion-button block type="button" disabled="{{isPushed}}" 
+          [navPush]="numresultsPage">Para la Loteria
+        </button>
+        <button ion-button block type="button" disabled="{{isPushed}}" 
+          [navPush]="numresultsPage">Para el numero de la suerte
+        </button>
+</div>
 
 
 </ion-content>

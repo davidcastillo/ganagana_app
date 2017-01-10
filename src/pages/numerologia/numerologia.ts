@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 
+import { NavController, NavParams } from 'ionic-angular';
+
+import { NumresultsPage } from '../numresults/numresults';
+
+
 
 @Component({
   selector: 'numerologia-page',
   templateUrl: 'numerologia.html'
 })
 export class NumerologiaPage {
-  private button2: true;
-
+  numresultsPage = NumresultsPage
+  //disabled: boolean = true;
+  isPushed: string = "disable";
 
 
   constructor() {}
@@ -15,11 +21,25 @@ export class NumerologiaPage {
 
   public activateButtons(){
     console.log("debe activar botones");
-     this.button2 = true;
-}
-
-
-
+    //this.disabled = false; 
+    //document.getElementById('one').removeAttribute('disabled');
+   // document.getElementById('two').removeAttribute('disabled');
+   // document.getElementById('three').removeAttribute('disabled');
+    this.isPushed = "";
+  }
 
   }
+
+            
+
+
+
+
+
+
+
+
+
+
+
 
