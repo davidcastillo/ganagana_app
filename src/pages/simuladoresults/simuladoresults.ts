@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 
+
 @Component({
   selector: 'simuladoresults-page',
   templateUrl: 'simuladoresults.html'
